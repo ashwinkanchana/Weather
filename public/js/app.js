@@ -7,7 +7,7 @@ const paragrphTwo = document.querySelector('#report')
 weatherForm.addEventListener('submit', (e)=>{
     e.preventDefault()    
     const location = search.value
-    const url = 'http://192.168.1.183:3000/weather?search=' + location
+    const url = '/weather?search=' + location
     paragrphOne.textContent = 'Loading...'
     paragrphTwo.textContent = ''
     fetch(url).then((response) => {

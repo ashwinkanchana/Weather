@@ -9,7 +9,7 @@ const forecast = (data, callback) => {
         else if (body.error) {
             callback('Unable to fetch weather for given location', undefined)
         } else {
-            callback(undefined, body.current.weather_descriptions[0] + ', Today\'s temperature is ' + body.current.temperature + '°C and it feels like ' + body.current.feelslike + '°C')
+            callback(undefined, body.current.weather_descriptions[0] + ', Today\'s temperature is ' + body.current.temperature + '°C ' + ' with wind speed of ' + body.current.wind_speed + 'km/h and ' + body.current.humidity+'% humidity' )
         }  
         
     })

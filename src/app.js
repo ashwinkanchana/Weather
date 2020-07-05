@@ -22,21 +22,21 @@ app.use(express.static(publicDirectoryPath))
 app.get('', (req, res) => {
     res.render('index', {
         title:'Weather',
-        paragraph: 'This is home page'
+        paragraph: 'Search for today\'s report 🌦️'
     })
 })
 
-app.get('/help', (req, res) => {
-    res.render('help', {
-        title: 'Help',
-        paragraph: 'This is help page'
+app.get('/more', (req, res) => {
+    res.render('more', {
+        title: 'More',
+        paragraph: 'There\'s nothing here for now'
     })
 })
 
 app.get('/about', (req, res) => {
     res.render('about', {
         title: 'About',
-        paragraph: 'This is about page'
+        paragraph: 'Weather app using Mapbox API to convert location into its co-ordinates and then passing it to Weatherstack API to get weather data, hosted on Heroku dyno'
     })
 })
 
@@ -44,7 +44,7 @@ app.get('/about', (req, res) => {
 app.get('/weather', (req, res) => {
     if (!req.query.search) {
         return res.send({
-            error: 'You must provide a location'
+            error: 'You must provide a location! 💩'
         })
     }
     const address = req.query.search
@@ -66,17 +66,17 @@ app.get('/weather', (req, res) => {
 })
 
 
-app.get('/help/*', (req, res) => {
+app.get('/more/*', (req, res) => {
     res.render('404', {
         title: '404',
-        paragraph: 'Help article not found'
+        paragraph: 'File not found 💩'
     })
 })
 
 app.get('*', (req, res) => {
     res.render('404', {
         title: '404',
-        paragraph: 'NOT FOUND'
+        paragraph: 'Page not found 💩'
     })
 })
 

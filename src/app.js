@@ -1,9 +1,11 @@
 const path = require('path')
 const express = require('express')
 const hbs = require('hbs')
+const dotenv = require('dotenv')
 const geocode = require('./utils/geocode')
 const forecast = require('./utils/forecast')
 
+dotenv.config()
 
 const app  = express()
 const port = process.env.PORT || 3000
@@ -36,7 +38,7 @@ app.get('/more', (req, res) => {
 app.get('/about', (req, res) => {
     res.render('about', {
         title: 'About',
-        paragraph: 'Weather app using Mapbox API to convert location into its co-ordinates and then passing it to Weatherstack API to get weather data, hosted on Heroku dyno'
+        paragraph: 'Weather app using Mapbox API to convert location into its co-ordinates and then passing it to Weatherstack API to get weather data, hosted on Render'
     })
 })
 
